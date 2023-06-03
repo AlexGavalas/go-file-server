@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for withered-smoke-2322 on 2023-06-03T12:09:43+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "withered-smoke-2322"
+primary_region = "cdg"
+
+[env]
+  DATA_DIR = "/data/"
+  PORT = "8080"
+  ENV = "production"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+
+[mounts]
+  source="app_md_data"
+  destination="/data"
